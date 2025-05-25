@@ -1,19 +1,19 @@
 import os
 import pandas as pd
 
-# Ścieżka do pliku CSV
+# Path to the CSV file
 csv_path = 'example/C/.csv'
 
-# Wczytanie pliku CSV z separatorem średnika
+# Load the CSV file with semicolon as separator
 df = pd.read_csv(csv_path, sep=';', on_bad_lines='skip')
 
-# Wydzielenie folderu z pliku CSV
+# Extract the folder from the CSV file path
 folder = os.path.dirname(csv_path)
 
-# Utworzenie ścieżki do pliku Parquet w tym samym folderze
+# Create the path for the Parquet file in the same folder
 parquet_path = os.path.join(folder, 'plik.parquet')
 
-# Zapis do formatu Parquet
+# Save to Parquet format
 df.to_parquet(parquet_path, index=False)
 
-print(f'Plik Parquet zapisany pod ścieżką: {parquet_path}')
+print(f'Parquet file saved at: {parquet_path}')
